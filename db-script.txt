@@ -1,0 +1,19 @@
+use LupaNHDb
+
+db.createCollection('TrashIssue')
+db.createCollection('SewerIssue')
+db.createCollection('WaterIssue')
+
+db.LightIssue.createIndex( { Loc : "2dsphere" } )
+db.LightIssue.insertMany([{'HasLightPole': true,"Loc":{"lon":-51.087416,"lat":0.032025},'IsItWorking': false,'Description': '...'}, {'HasLightPole': true,"Loc":{"lon":-51.163367,"lat":0.018619},'IsItWorking': false,'Description': '...'}])
+db.LightIssue.insertMany([{'HasLightPole': true,'Long':-51.087416,'Lat':0.032025,'IsItWorking': false,'Description': '...'}, {'HasLightPole': true,'Long':-51.163367,'Lat':0.018619,'IsItWorking': false,'Description': '...'}])
+db.LightIssue.find({}).pretty()
+
+db.TrashIssue.insertMany([{'HasWasteCollection': true,'Long': -51.087416,'Lat':0.032025,'HowOften': 0,'Description': '...'}])
+
+db.SewerIssue.insertMany([{'HasSanitation': true,'Long': -51.087416,'Lat':0.032025,'HasCesspool': false,'Description': '...'}])
+
+db.AsphaltIssue.insertMany([{'EndLong': -21.09092,'Long': -51.087416,'Lat':0.032025, 'EndLat':1.032025,'Description': '...'}])
+
+db.WaterIssue.insertMany([{'HasPipedWater': true,'HasOftenWaterLack': 1,'Long':-51.087416,'Lat':0.032025,'HasBorehole': false,'KindofBorehole': 1,'Description': '...'}])
+db.WaterIssue.find({}).pretty()

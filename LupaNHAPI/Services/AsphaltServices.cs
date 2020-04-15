@@ -7,37 +7,37 @@ using System.Threading.Tasks;
 
 namespace LupaNHAPI.Services
 {
-    public class LightServices
+    public class AsphaltServices
     {
-        private readonly IMongoCollection<LightIssue> _lissue;
+        private readonly IMongoCollection<AsphaltIssue> _lissue;
 
-        public LightServices(ILupaNHDatabaseSettings settings)
+        public AsphaltServices(ILupaNHDatabaseSettings settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _lissue = database.GetCollection<LightIssue>(settings.LightCollectionName);
-       
+            _lissue = database.GetCollection<AsphaltIssue>(settings.AsphaltCollectionName);
+
         }
 
-        public List<LightIssue> Get() =>
-            // _lissue.Find(issue => true).ToList();
+        public List<AsphaltIssue> Get() =>
+          
             _lissue.Find(issue => true).ToList();
-       
 
-        public LightIssue Get(string id) =>
-            _lissue.Find<LightIssue>(issue => issue.Id == id).FirstOrDefault();
 
-        public LightIssue Create(LightIssue issue)
+        public AsphaltIssue Get(string id) =>
+            _lissue.Find<AsphaltIssue>(issue => issue.Id == id).FirstOrDefault();
+
+        public AsphaltIssue Create(AsphaltIssue issue)
         {
             _lissue.InsertOne(issue);
             return issue;
         }
 
-        public void Update(string id, LightIssue issueIn) =>
+        public void Update(string id, AsphaltIssue issueIn) =>
             _lissue.ReplaceOne(issue => issue.Id == id, issueIn);
 
-        public void Remove(LightIssue issueIn) =>
+        public void Remove(AsphaltIssue issueIn) =>
             _lissue.DeleteOne(issue => issue.Id == issueIn.Id);
 
         public void Remove(string id) =>

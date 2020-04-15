@@ -9,20 +9,22 @@ using MongoDB.Bson.Serialization.Options;
 
 namespace LupaNHAPI.Models
 {
-    public class LightIssue
+    public class AsphaltIssue
     {
 
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        public string HasLightPole { get; set; }
-       
-       // public List<double> loc { get; set; }
+        // public initial location { get; set; }
         public double Long { get; set; }
         public double Lat { get; set; }
+
+        // public End location { get; set; }
+        public double EndLong { get; set; }
+        public double EndLat { get; set; }
+       
         //Bool behavior
-        public string IsItWorking { get; set; }
         public string Description { get; set; }
 
     }

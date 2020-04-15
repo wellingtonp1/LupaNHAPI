@@ -36,6 +36,10 @@ namespace LupaNHAPI
                 sp.GetRequiredService<IOptions<LupaNHDatabaseSettings>>().Value);
 
             services.AddSingleton<LightServices>();
+            services.AddSingleton<SewerServices>();
+            services.AddSingleton<TrashServices>();
+            services.AddSingleton<WaterServices>();
+            services.AddSingleton<AsphaltServices>();
             services.AddControllers();
         }
 
