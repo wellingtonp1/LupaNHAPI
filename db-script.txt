@@ -17,3 +17,5 @@ db.AsphaltIssue.insertMany([{'EndLong': -21.09092,'Long': -51.087416,'Lat':0.032
 
 db.WaterIssue.insertMany([{'HasPipedWater': true,'HasOftenWaterLack': 1,'Long':-51.087416,'Lat':0.032025,'HasBorehole': false,'KindofBorehole': 1,'Description': '...'}])
 db.WaterIssue.find({}).pretty()
+
+https://medium.com/quick-code/react-native-location-tracking-14ab2c9e2db8
